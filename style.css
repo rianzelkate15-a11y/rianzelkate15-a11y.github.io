@@ -359,104 +359,65 @@ body.dark .contact input, body.dark .contact textarea { background:#3A0066; colo
 body.dark .contact button { background:#FF69B4; color:#1B0038; }
 body.dark .skill { background:#FF69B4; color:#1B0038; }
 
-@media (max-width: 600px) {
-
-  /* NAVBAR */
-  .top-nav {
-    flex-wrap: wrap;
-    gap: 8px;
-    top: 10px;
-  }
-
-  .top-nav a {
-    padding: 8px 14px;
-    font-size: 0.85rem;
-  }
-
-  /* HERO SECTION */
-  .typing {
-    font-size: 1.6rem;
-  }
-
-  .subtitle,
-  .quote {
-    font-size: 0.9rem;
-  }
-
+/* -------------------- HERO RESPONSIVE FIX -------------------- */
+@media (max-width: 1024px) {
   .hero-pic {
-    width: 200px;
-    right: 50%;
-    bottom: 8%;
-    top: auto;
-    transform: translateX(50%);
+    width: 350px;        /* scale down for tablets */
+    right: 5%;           /* keep distance from right */
+    top: 50%;            /* vertical center */
+    transform: translateY(-50%);
+  }
+
+  .tap-text {
+    right: 5%;           /* same as image */
+    top: 40%;            /* slightly above image */
+    transform: translateY(-50%);
+    font-size: 1.1rem;
+  }
+
+  .typing {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .quote {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-pic {
+    width: 250px;        /* scale down more for phones */
+    right: 50%;          /* center horizontally */
+    top: 55%;            /* vertical adjust */
+    transform: translateX(50%) translateY(-50%);
   }
 
   .tap-text {
     right: 50%;
-    top: 32%;
-    transform: translateX(50%);
+    top: 45%;
+    transform: translateX(50%) translateY(-50%);
     font-size: 1rem;
   }
 
-  /* ABOUT */
-  .about {
-    padding: 60px 20px;
+  .typing {
+    font-size: 1.6rem;
   }
 
-  .about h2 {
-    font-size: 2rem;
-  }
-
-  .about p {
-    font-size: 0.95rem;
-  }
-
-  /* SKILLS */
-  .skills-container {
-    gap: 20px;
-  }
-
-  .skill-grid {
-    max-width: 100%;
-  }
-
-  /* PROJECTS */
-  .project-card {
-    width: 90%;
-  }
-
-  /* CONTACT */
-  .contact form {
-    width: 100%;
+  .subtitle, .quote {
+    font-size: 0.9rem;
   }
 }
 
-@media (max-width: 1024px) {
-
+@media (max-width: 480px) {
   .hero-pic {
-    width: 300px;
+    width: 200px;        /* smallest phones */
   }
 
-  .typing {
-    font-size: 1.8rem;
-  }
-
-  .about h2,
-  .contact h2 {
-    font-size: 2.2rem;
-  }
-
-  .project-card {
-    width: 280px;
-  }
-
-  @media (min-width: 1200px) {
-  .hero-pic {
-    width: 500px;
-  }
-
-  .skill-grid {
-    max-width: 900px;
-  }
+  .tap-text {
+    font-size: 0.9rem;
   }
 }
