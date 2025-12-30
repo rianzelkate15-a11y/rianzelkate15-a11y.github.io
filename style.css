@@ -359,68 +359,49 @@
     body.dark .contact button { background:#FF69B4; color:#1B0038; }
     body.dark .skill { background:#FF69B4; color:#1B0038; }
 
-    /* -------------------- HERO RESPONSIVE FIX -------------------- */
-/* Tablet: 600px – 1024px */
+ .hero {
+  position: relative; /* make child elements position relative to this */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center;     /* center vertically */
+  text-align: center;
+}
+
+.hero-pic {
+  position: relative; /* relative to .hero */
+  width: 500px;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+  cursor: pointer;
+  z-index: 2;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tap-text {
+  position: absolute;
+  top: 10%; /* slightly above the image */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #FFD700;
+  text-shadow: 0 0 8px #FF69B4, 0 0 12px #FF00FF;
+  z-index: 3;
+}
+
+/* MEDIA QUERIES */
 @media (max-width: 1024px) {
-  .hero-pic {
-    width: 400px;          /* slightly smaller */
-    right: 5%;             /* keep near right */
-    top: 50%;              /* vertical center */
-    transform: translateY(-50%);
-  }
-
-  .tap-text {
-    right: 5%;             /* same as image */
-    top: 35%;              /* above the image */
-    transform: translateY(-50%);
-    font-size: 1.2rem;
-  }
-
-  .typing {
-    font-size: 2rem;
-  }
-
-  .subtitle {
-    font-size: 1rem;
-  }
-
-  .quote {
-    font-size: 0.95rem;
-  }
+  .hero-pic { width: 400px; }
+  .tap-text { font-size: 1.1rem; top: 12%; }
 }
 
-/* Mobile: below 600px */
-@media (max-width: 600px) {
-  .hero-pic {
-    width: 250px;          /* smaller for phones */
-    right: 50%;            /* center horizontally */
-    top: 55%;              /* vertical adjust */
-    transform: translateX(50%) translateY(-50%);
-  }
-
-  .tap-text {
-    right: 50%;
-    top: 40%;              /* slightly above the image */
-    transform: translateX(50%) translateY(-50%);
-    font-size: 1rem;
-  }
-
-  .typing {
-    font-size: 1.6rem;
-  }
-
-  .subtitle, .quote {
-    font-size: 0.9rem;
-  }
+@media (max-width: 768px) {
+  .hero-pic { width: 300px; }
+  .tap-text { font-size: 1rem; top: 10%; }
 }
 
-/* Extra small phones */
 @media (max-width: 480px) {
-  .hero-pic {
-    width: 200px;
-  }
-
-  .tap-text {
-    font-size: 0.9rem;
-  }
+  .hero-pic { width: 200px; }
+  .tap-text { font-size: 0.9rem; top: 8%; }
 }
