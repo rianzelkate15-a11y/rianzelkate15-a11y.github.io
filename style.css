@@ -35,25 +35,32 @@
     .hero { background: linear-gradient(135deg, #7c5dfa, #ff8dc7); overflow: hidden; }
     #game-bg { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; }
     .hero-content { position: relative; z-index: 2; }
-    .hero-pic {
-      position: absolute;
-      right: 5%;               
-      top: 50%;                
-      transform: translateY(-50%);
-      width: 500px;            
-      border-radius: 20px;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-      cursor: pointer;
-      z-index: 3;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
+    /* -------------------- HERO SECTION - DESKTOP -------------------- */
+.hero-pic {
+  position: absolute;
+  right: 5%;       /* keep it on the right */
+  top: 50%;        /* vertical center */
+  transform: translateY(-50%);
+  width: 500px;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+  cursor: pointer;
+  z-index: 3;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
 
-    /* Glow on side when hovered or touched */
-    .hero-pic:hover,
-    .hero-pic:active {
-      animation: shake 0.5s;
-      box-shadow: 0 0 30px #FFD700, 0 0 60px #FF69B4, 0 0 90px #FF00FF;
-    }
+.tap-text {
+  position: absolute;
+  right: 5%;       /* same as image */
+  top: 40%;        /* above the image */
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #FFD700;
+  text-shadow: 0 0 8px #FF69B4, 0 0 12px #FF00FF;
+  z-index: 4;
+  pointer-events: none;
+}
 
     /* Shake keyframes */
     @keyframes shake {
@@ -358,64 +365,3 @@
     body.dark .contact input, body.dark .contact textarea { background:#3A0066; color:#FFD700; }
     body.dark .contact button { background:#FF69B4; color:#1B0038; }
     body.dark .skill { background:#FF69B4; color:#1B0038; }
-
-/* HERO SECTION - default (Laptop/Desktop) */
-.hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  min-height: 100vh;
-  padding: 80px 20px;
-  text-align: center;
-}
-
-.hero-pic {
-  position: absolute;
-  right: 5%;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 500px;
-  border-radius: 20px;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-  cursor: pointer;
-  z-index: 3;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.tap-text {
-  position: absolute;
-  right: 5%;
-  top: 40%;
-  transform: translateY(-50%);
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #FFD700;
-  text-shadow: 0 0 8px #FF69B4, 0 0 12px #FF00FF;
-  z-index: 4;
-  pointer-events: none;
-}
-
-/* ------------------ TABLET & MOBILE ------------------ */
-@media (max-width: 1024px) {
-  .hero-pic,
-  .tap-text {
-    position: static;       /* remove absolute */
-    transform: none;        /* reset transform */
-    margin-top: 20px;       /* space below text */
-  }
-
-  .hero-pic { width: 350px; }
-  .tap-text { font-size: 1.1rem; }
-}
-
-@media (max-width: 768px) {
-  .hero-pic { width: 250px; }
-  .tap-text { font-size: 1rem; }
-}
-
-@media (max-width: 480px) {
-  .hero-pic { width: 200px; }
-  .tap-text { font-size: 0.9rem; }
-}
