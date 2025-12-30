@@ -106,3 +106,26 @@ function launchConfetti() {
 // Trigger confetti when image is clicked
 document.querySelector('.hero-pic').addEventListener('click', launchConfetti);
 
+const heroPic = document.querySelector('.hero-pic');
+
+function triggerEffect() {
+  heroPic.classList.remove('interact'); // reset animation
+  void heroPic.offsetWidth;             // force reflow
+  heroPic.classList.add('interact');
+
+  // Confetti
+  for (let i = 0; i < 30; i++) {
+    const confetti = document.createElement('div');
+    confetti.className = 'confetti';
+
+    confetti.style.left = Math.random() * 100 + 'vw';
+    confetti.style.backgroundColor =
+      ['#FFD700', '#FF69B4', '#7c5dfa', '#00FFFF'][Math.floor(Math.random() * 4)];
+
+    document.body.appendChild(confetti);
+    setTimeout(() => confetti.remove(), 2000);
+  }
+}
+
+heroPic.addEventListener('click', triggerEffect);
+heroPic.addEventListener('mouseenter', triggerEffect);
