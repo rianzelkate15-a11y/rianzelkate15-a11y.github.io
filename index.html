@@ -14,6 +14,12 @@
 <input type="checkbox" id="dark-toggle">
 <label for="dark-toggle" class="dark-mode-toggle"></label>
 
+<div class="hamburger">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+</div>
+
 <!-- NAVBAR -->
 <nav class="top-nav">
   <a href="#home">Home</a>
@@ -177,5 +183,38 @@
 </footer>
 
 <script src="script.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.top-nav');
+    const navLinks = document.querySelectorAll('.top-nav a');
+
+    hamburger.addEventListener('click', () => {
+        // 1. Enable animation ONLY when clicking (Fixes the resize glitch)
+        navMenu.classList.add('nav-transition');
+        
+        // 2. Toggle the menu
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+    
+    // Optional: Remove transition class if window is resized back to desktop
+    // This cleans up the CSS if the user rotates their phone
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            navMenu.classList.remove('nav-transition');
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+        }
+    });
+  });
+</script>
 </body>
 </html>
